@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.DashBoard"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="806.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.DashBoardController">
+    <children>
+        <AnchorPane fx:id="ancDash" prefHeight="400.0" prefWidth="227.0" style="-fx-background-color: #28264F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lblDash" alignment="CENTER" layoutX="16.0" layoutY="32.0" prefHeight="34.0" prefWidth="198.0" style="-fx-background-color: #3B3B98;" text="DashBoard" textAlignment="RIGHT" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Button layoutX="47.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnBeach_LocationOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Beach_Location" />
+                <Button layoutX="47.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnBillOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Bill" />
+                <Button layoutX="47.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnGuideOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Guide" />
+                <Button layoutX="47.0" layoutY="307.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Payment" />
+                <Button layoutX="47.0" layoutY="346.0" mnemonicParsing="false" onAction="#btnSessionOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Session" />
+                <Button layoutX="47.0" layoutY="265.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Item" />
+                <Button layoutX="47.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Supplier" />
+            <Button layoutX="47.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnSurf_BoardOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Surf_Board" />
+            <Button layoutX="47.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnTouristOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Tourist" />
+            <Button layoutX="47.0" layoutY="519.0" mnemonicParsing="false" onAction="#btnTransportOnAction" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #BEB3FA;" text="Transport" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/WhatsApp%20Image%202025-04-30%20at%201.50.26%20AM.jpeg" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="ancPanal" layoutX="212.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    </children>
 </AnchorPane>

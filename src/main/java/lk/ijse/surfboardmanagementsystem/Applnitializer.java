@@ -1,4 +1,4 @@
-package lk.ijse.surfboardmanagementsystem.model;
+package lk.ijse.surfboardmanagementsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Applnitializer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("hello.view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/DashBoard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello");
         stage.setScene(scene);
