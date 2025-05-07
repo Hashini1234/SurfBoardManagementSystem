@@ -7,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.dto.Supplier;
-import lk.ijse.surfboardmanagementsystem.model.GuideModel;
 import lk.ijse.surfboardmanagementsystem.model.SupplierModel;
 
 import java.sql.SQLException;
@@ -24,7 +22,7 @@ public class SupplierController {
     public TableColumn colContactInfo;
     public TextField txtSupplierId;
     public Label lblid;
-
+private final SupplierModel suppModel = new SupplierModel();
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         SetNextId();
@@ -32,8 +30,8 @@ public class SupplierController {
     }
 
     private void loadtable() throws SQLException, ClassNotFoundException {
-        ArrayList<Supplier> suppliers= SupplierModel.getall();
-        ObservableList<Supplier> observableList= FXCollections.observableArrayList(suppliers);
+        ArrayList<Supplier> suppliers= suppModel.getall();
+        ObservableList<Supplier> observableList= FXCollections.observableArrayList();
         for (Supplier supplier:suppliers) {
             observableList.add(supplier);
         }
@@ -44,24 +42,24 @@ public class SupplierController {
     }
 
     private void SetNextId() throws SQLException, ClassNotFoundException {
-        String nextId = SupplierModel.getNextId();
-        System.out.println(nextId +" jjjjjjj");
+        String nextId = suppModel.getNextId();
+
         lblid.setText(nextId);
 
 
     }
 
     private void setcellvaluefactory() {
-        clmSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
-        clmName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        clmContactInfo.setCellValueFactory(new PropertyValueFactory<>("contactDetails"));
+        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colContactInfo.setCellValueFactory(new PropertyValueFactory<>("contactInfo"));
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String id=lblid.getText();
-        boolean isDelete=SupplierModel.DeleteSupplier(id);
+        boolean isDelete=suppModel.DeleteSupplier(id);
         if(isDelete){
             loadtable();
             SetNextId();
@@ -73,10 +71,6 @@ public class SupplierController {
 
     }
 
-    @FXML
-    void btnGenarateROnAction(ActionEvent event) {
-
-    }
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
@@ -87,13 +81,13 @@ public class SupplierController {
     void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String id=lblid.getText();
         String name=txtSupplierName.getText();
-        String contactDetails=txtContactInfo.getText();
+        String contactInfo=txtContactInfo.getText();
         //System.out.println(id+name+contactDetails+payForHour);
 
         Supplier supplier=new Supplier(
-                id,name,colContactInfo
+                id,name,contactInfo
         );
-        boolean isSave=SupplierModel.SaveSupplier(supplier);
+        boolean isSave=suppModel.SaveSupplier(supplier);
         if(isSave){
             loadtable();
             SetNextId();
@@ -105,35 +99,35 @@ public class SupplierController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String id=lblId.getText();
-        String name=txtName.getText();
-        String contactDetails=txtContactDetails.getText();
-        String experience_Year=txtExperience_Year.getText();
-        Double payForHour= Double.valueOf(txtPayForHour.getText());
+        String id=lblid.getText();
+        String name=txtSupplierName.getText();
+        String contactinfo=txtContactInfo.getText();
+
+
         //System.out.println(id+name+contactDetails+payForHour);
 
-        Guide guide=new Guide(
-                id,name,contactDetails,experience_Year,payForHour
+        Supplier supplier=new Supplier(
+                id,name,contactinfo
         );
-        boolean isUpdate=GuideModel.UpdateGuide(guide);
+        boolean isUpdate=suppModel.UpdateSupplier(supplier);
         if(isUpdate){
             loadtable();
             SetNextId();
-            new Alert(Alert.AlertType.INFORMATION,"Guide Update",ButtonType.OK).show();
+            new Alert(Alert.AlertType.INFORMATION,"Supplier Update",ButtonType.OK).show();
         }else {
-            new Alert(Alert.AlertType.ERROR,"Guide not Update",ButtonType.OK).show();
+            new Alert(Alert.AlertType.ERROR,"Supplier not Update",ButtonType.OK).show();
         }
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {
-        Guide selectedItem = tblGuide.getSelectionModel().getSelectedItem();
+        Supplier selectedItem = (Supplier) tblSuppliers.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
-            lblId.setText(selectedItem.getGuideId());
-            txtName.setText(selectedItem.getName());
-            txtContactDetails.setText(selectedItem.getContactDetails());
-            txtExperience_Year.setText(selectedItem.getExperienceLevel());
-            txtPayForHour.setText(String.valueOf(selectedItem.getPayFor()));
+            lblid.setText(selectedItem.getSupplierId());
+            txtSupplierName.setText(selectedItem.getName());
+            txtContactInfo.setText(selectedItem.getContactInfo());
+
+
 
            /* // save button disable
             btnSave.setDisable(true);
@@ -148,4 +142,4 @@ public class SupplierController {
     }
 }
 
-}
+

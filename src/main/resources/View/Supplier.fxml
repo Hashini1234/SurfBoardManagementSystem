@@ -91,7 +91,7 @@
             </HBox>
 
             <!-- Supplier Table Section -->
-            <TableView fx:id="tblSuppliers" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
+            <TableView fx:id="tblSuppliers" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colSupplierId" prefWidth="150" text="Supplier ID" />
                     <TableColumn fx:id="colName" prefWidth="200" text="Name" />
