@@ -30,4 +30,7 @@ public class ItemController {
 
     public void btnResetOnAction(ActionEvent actionEvent) {
     }
+    public void btnGenerateOnAction(ActionEvent actionEvent) {
+
+    }
 }

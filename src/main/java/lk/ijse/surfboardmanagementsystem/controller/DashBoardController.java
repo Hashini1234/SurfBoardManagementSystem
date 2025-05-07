@@ -21,6 +21,7 @@ public  class DashBoardController implements Initializable {
     }
 
     public void btnBillOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Bill.fxml");
     }
 
     public void btnGuideOnAction(ActionEvent actionEvent) {
@@ -31,21 +32,27 @@ public  class DashBoardController implements Initializable {
     }
 
     public void btnSessionOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Session.fxml");
     }
 
     public void btnItemOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Item.fxml");
     }
 
     public void btnSupplierOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Supplier.fxml");
     }
 
     public void btnSurf_BoardOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Surf_Board.fxml");
     }
 
     public void btnTouristOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Tourist.fxml");
     }
 
     public void btnTransportOnAction(ActionEvent actionEvent) {
+        nevigateTo("/View/Transport.fxml");
     }
 
     @Override
