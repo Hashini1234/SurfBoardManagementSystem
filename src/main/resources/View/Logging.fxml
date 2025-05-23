@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.surfboardmanagementsystem.controller.LoggingpageController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="386.0" prefWidth="1006.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.LoggingPageController">
 
+    <children>
+
+
+        <ImageView fitHeight="387.0" fitWidth="981.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+
+                <Image url="@../Image/slider04.jpg" />
+            </image>
+        </ImageView>
+
+
+        <VBox alignment="CENTER" layoutX="553.0" prefHeight="387.0" prefWidth="584.0" spacing="15.0" style="-fx-background-color: #130f40; -fx-background-radius: 15; -fx-padding: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <effect>
+                <DropShadow color="#00000055" radius="10.0" />
+            </effect>
+
+            <Label prefHeight="53.0" prefWidth="171.0" text="Welcome Back" textFill="#f8f0f0">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+
+            <Label text="Login to your account" textFill="#e4dbdb">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+
+            <TextField fx:id="txtUsername" maxWidth="250.0" promptText="Username" />
+            <PasswordField fx:id="txtPassword" maxWidth="250.0" promptText="Password" />
+
+            <Button fx:id="btnLogin" onAction="#loginOnAction" prefWidth="250.0" style="-fx-background-color: #38ef7d; -fx-text-fill: white; -fx-background-radius: 10;" text="Login" />
+
+            <Label fx:id="lblError" textFill="red" visible="false" />
+
+            <padding>
+                <Insets bottom="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+
+    </children>
 </AnchorPane>

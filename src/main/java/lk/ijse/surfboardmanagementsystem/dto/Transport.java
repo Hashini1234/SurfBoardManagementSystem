@@ -2,8 +2,6 @@ package lk.ijse.surfboardmanagementsystem.dto;
 
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @NoArgsConstructor
 @Setter
 @Getter
@@ -12,7 +10,7 @@ import java.math.BigDecimal;
 public class Transport {
     private String transportId;
     private String location;
-    private BigDecimal cost;
+    private String cost;
     private String touristId;
     private String vehicleType;
 

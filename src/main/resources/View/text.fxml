@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="806.0" prefWidth="942.0" stylesheets="@../css/test.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.DashBoardController">
+<AnchorPane prefHeight="806.0" prefWidth="942.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.DashBoardController">
 
     <children>
-
-        <AnchorPane fx:id="ancDash" prefHeight="806.0" prefWidth="285.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Sidebar -->
+        <AnchorPane id="sidebar" fx:id="ancDash" prefHeight="806.0" prefWidth="285.0" stylesheets="@../css/test.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Label fx:id="lblDash" layoutX="50.0" layoutY="30.0" prefHeight="50.0" prefWidth="180.0" styleClass="dashboard-label" text="Dashboard">
                     <font>
@@ -17,7 +17,7 @@
                     </font>
                 </Label>
 
-
+                <!-- Navigation Buttons -->
                 <Button layoutX="60.0" layoutY="110.0" onAction="#btnBeach_LocationOnAction" styleClass="nav-button" text="Beach Location" />
                 <Button layoutX="60.0" layoutY="160.0" onAction="#btnBillOnAction" styleClass="nav-button" text="Bill" />
                 <Button layoutX="60.0" layoutY="210.0" onAction="#btnGuideOnAction" styleClass="nav-button" text="Guide" />
@@ -28,11 +28,10 @@
                 <Button layoutX="60.0" layoutY="460.0" onAction="#btnSurf_BoardOnAction" styleClass="nav-button" text="Surf Board" />
                 <Button layoutX="60.0" layoutY="510.0" onAction="#btnTouristOnAction" styleClass="nav-button" text="Tourist" />
                 <Button layoutX="60.0" layoutY="560.0" onAction="#btnTransportOnAction" styleClass="nav-button" text="Transport" />
-                <Button layoutX="104.0" layoutY="665.0" onAction="#btnLogOutOnAction" styleClass="logout-button" text="LOG OUT" />
             </children>
         </AnchorPane>
 
-        
+        <!-- Main Content Panel -->
         <AnchorPane fx:id="ancPanal" styleClass="main-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>

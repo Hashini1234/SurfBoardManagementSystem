@@ -7,11 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.model.GuideModel;
-
-import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -56,19 +53,17 @@ public class GuidController  {
 
     private void loadtable() throws SQLException, ClassNotFoundException {
         ArrayList<Guide> guides=GuideModel.getall();
-        ObservableList<Guide> observableList= FXCollections.observableArrayList(guides);
+        ObservableList<Guide> observableList= FXCollections.observableArrayList();
         for (Guide guide:guides) {
             observableList.add(guide);
         }
         tblGuide.setItems(observableList);
     }
 
-    private void GetNextId() {
-    }
+
 
     private void SetNextId() throws SQLException, ClassNotFoundException {
         String nextId = guideModel.getNextId();
-        System.out.println(nextId +" jjjjjjj");
         lblId.setText(nextId);
 
 

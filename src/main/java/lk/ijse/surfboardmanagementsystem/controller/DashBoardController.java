@@ -44,7 +44,7 @@ public  class DashBoardController implements Initializable {
     }
 
     public void btnSurf_BoardOnAction(ActionEvent actionEvent) {
-        nevigateTo("/View/Surf_Board.fxml");
+        nevigateTo("/View/SurfBoard.fxml");
     }
 
     public void btnTouristOnAction(ActionEvent actionEvent) {
@@ -74,5 +74,8 @@ public  class DashBoardController implements Initializable {
 
             }
         }
+
+    public void btnLogOutOnAction(ActionEvent actionEvent) {
     }
+}
 

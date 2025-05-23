@@ -20,7 +20,7 @@
             <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
                 <HBox spacing="10.0">
                     <Label prefHeight="16.0" prefWidth="153.0" text="Item ID:" textFill="white" />
-               <Label prefHeight="16.0" prefWidth="440.0" text="1" textFill="#f5efef" />
+               <Label fx:id="lblid" prefHeight="16.0" prefWidth="440.0" text="1" textFill="#f5efef" />
                 </HBox>
                 <HBox spacing="10.0">
                     <Label text="Name:" textFill="white" />
