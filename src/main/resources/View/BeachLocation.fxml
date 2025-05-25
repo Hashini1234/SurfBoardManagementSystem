@@ -79,10 +79,10 @@
                         </HBox>
                         <TableView fx:id="tblBeach_Location" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #636e72;" VBox.vgrow="ALWAYS">
                             <columns>
-                                <TableColumn prefWidth="163.0" text="Brach_Location id" />
-                                <TableColumn prefWidth="174.0" text="Location_Name" />
-                                <TableColumn prefWidth="182.0" text="Peak Season" />
-                                <TableColumn prefWidth="79.0" text="Month" />
+                                <TableColumn fx:id="clmbeach_location" prefWidth="163.0" text="Beach_Location id" />
+                                <TableColumn fx:id="clmlocation_name" prefWidth="174.0" text="Location_Name" />
+                                <TableColumn fx:id="clmpeak_season" prefWidth="182.0" text="Peak Season" />
+                                <TableColumn fx:id="clmmonth" prefWidth="79.0" text="Month" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -91,7 +91,7 @@
                     </children>
                 </VBox>
                 <Label layoutX="6.0" layoutY="-9.0" prefHeight="32.0" prefWidth="311.0" text="Beach_Location id" textFill="#fcf6f6" />
-                <Label layoutX="197.0" layoutY="-4.0" prefHeight="26.0" prefWidth="185.0" text="1" textFill="#f5efef" />
+                <Label fx:id="lblId" layoutX="197.0" layoutY="-4.0" prefHeight="26.0" prefWidth="185.0" text="1" textFill="#f5efef" />
             </children>
         </AnchorPane>
     </children>

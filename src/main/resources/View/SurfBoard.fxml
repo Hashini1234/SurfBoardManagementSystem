@@ -100,7 +100,7 @@
                 </Button>
             </HBox>
 
-            <TableView fx:id="tblSurfboards" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
+            <TableView fx:id="tblSurfboards" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colSurfboardId" prefWidth="100" text="Surfboard ID" />
                     <TableColumn fx:id="colBrand" prefWidth="200" text="Brand" />
