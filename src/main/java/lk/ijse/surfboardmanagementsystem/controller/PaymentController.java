@@ -5,6 +5,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class PaymentController {
     public TextField txtPaymentId;
@@ -32,5 +33,9 @@ public class PaymentController {
     }
 
     public void btnGenerateOnAction(ActionEvent actionEvent) {
+    }
+
+    public void tblClickOnAction(MouseEvent mouseEvent) {
+
     }
 }

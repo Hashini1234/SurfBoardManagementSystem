@@ -119,7 +119,7 @@
                 </Button>
             </HBox>
 
-            <TableView fx:id="tblItems" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
+            <TableView fx:id="tblItems" onMouseClicked="#tblClickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colItemId" prefWidth="100" text="Item ID" />
                     <TableColumn fx:id="colName" prefWidth="150" text="Name" />

@@ -1,4 +1,6 @@
 package lk.ijse.surfboardmanagementsystem.model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.surfboardmanagementsystem.dto.Tourist;
 import lk.ijse.surfboardmanagementsystem.util.CrudUtil;
 
@@ -50,4 +52,16 @@ public class TouristModel {
         return CrudUtil.execute("update Tourist set name = ?,address = ? ,contact_details=? where tourist_id = ?" , tourist.getName(),tourist.getAddress(),tourist.getContactDetails(),tourist.getTouristId());
 
     }
-}
+
+    public static ObservableList<String> getAllTourist() throws SQLException, ClassNotFoundException {
+            ResultSet rs = CrudUtil.execute("select  tourist_id from Tourist");
+            ObservableList list = FXCollections.observableArrayList();
+
+            while (rs.next()){
+                list.add(rs.getString("tourist_id"));
+
+            }
+            return list;
+        }
+    }
+

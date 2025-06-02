@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.dto.Transport;
 import lk.ijse.surfboardmanagementsystem.model.GuideModel;
+import lk.ijse.surfboardmanagementsystem.model.TouristModel;
 import lk.ijse.surfboardmanagementsystem.model.TransportModel;
 
 import java.sql.SQLException;
@@ -18,18 +19,21 @@ public class TransportController {
     public TextField txtTransportId;
     public TextField txtLocation;
     public TextField txtCost;
-    public TextField txtTouristId;
-    public TextField txtVehicleType;
     public TableView<Transport> tblTransport;
     public TableColumn <?,?>colTransportId;
     public TableColumn <?,?>colLocation;
     public TableColumn <?,?>colCost;
     public TableColumn <?,?>colTouristId;
     public TableColumn <?,?>colVehicleType;
+    public ComboBox <String>cmbTourist;
+
+    public ComboBox<String> cmbVehicle;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         SetNextId();
+        cmbVehicle.setItems(FXCollections.observableArrayList("Car ","Van ","Bus"));
+        cmbTourist.setItems(TouristModel.getAllTourist());
         loadtable();
     }
 
@@ -62,8 +66,8 @@ public class TransportController {
         String id=txtTransportId.getText();
         String location=txtLocation.getText();
         String cost=txtCost.getText();
-        String tourist_id=txtTouristId.getText();
-        String vehicle_type=colVehicleType.getText();
+        String tourist_id=cmbTourist.getValue();
+        String vehicle_type=cmbVehicle.getValue();
 
 
         Transport transport=new Transport(
@@ -83,8 +87,8 @@ public class TransportController {
         String id=txtTransportId.getText();
         String location=txtLocation.getText();
         String cost=txtCost.getText();
-        String tourist_id=txtTouristId.getText();
-        String vehicle_type=colVehicleType.getText();
+        String tourist_id=cmbTourist.getValue();
+        String vehicle_type=cmbVehicle.getValue();
 
 
         Transport transport=new Transport(
@@ -121,8 +125,8 @@ public class TransportController {
             txtTransportId.setText(selectedItem.getTransportId());
             txtLocation.setText(selectedItem.getLocation());
             txtCost.setText(selectedItem.getCost());
-            txtTouristId.setText(selectedItem.getTouristId());
-            txtVehicleType.setText(selectedItem.getVehicleType());
+            cmbTourist.setValue(selectedItem.getTouristId());
+            cmbVehicle.setValue(selectedItem.getVehicleType());
 
            /* // save button disable
             btnSave.setDisable(true);

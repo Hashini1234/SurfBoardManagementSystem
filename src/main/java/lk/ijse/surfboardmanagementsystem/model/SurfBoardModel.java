@@ -38,18 +38,18 @@ public class SurfBoardModel {
         return CrudUtil.execute("delete from Surf_Board where surfboard_id= ? ",id);
     }
     public static String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rs = CrudUtil.execute("select surfboard_id from Surf_Board order by surfboard_id DESC limit 1");
-        char tableCharactor ='S';
-        if(rs.next()){
-            String lastId =rs.getString(1);
+        ResultSet rs = CrudUtil.execute("SELECT surfboard_id FROM Surf_Board ORDER BY surfboard_id DESC LIMIT 1");
+        char tableCharactor = 'S';
+        if (rs.next()) {
+            String lastId = rs.getString(1);
             String lastIdNumberString = lastId.substring(1);
             int lastIdNumber = Integer.parseInt(lastIdNumberString);
             int nextIdNumber = lastIdNumber + 1;
-            String nextIdString =String.format("S%03d", nextIdNumber);
-            return nextIdString;
+            return String.format("%c%03d", tableCharactor, nextIdNumber);
         }
-        return tableCharactor+"001";
+        return tableCharactor + "001";
     }
+
 }
 
 

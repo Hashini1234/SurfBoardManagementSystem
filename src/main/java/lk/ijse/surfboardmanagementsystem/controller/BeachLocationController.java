@@ -8,10 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.surfboardmanagementsystem.dto.BeachLocation;
-import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.model.BeachLocationModel;
-import lk.ijse.surfboardmanagementsystem.model.GuideModel;
-import lk.ijse.surfboardmanagementsystem.model.SurfBoardModel;
+
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,6 +38,8 @@ public class BeachLocationController {
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         SetNextId();
+        cbMonth.setItems(BeachLocationModel.getAllMonth());
+cbSeason.setItems(BeachLocationModel.getAllSeson());
         loadtable();
     }
 
@@ -54,7 +54,7 @@ public class BeachLocationController {
     }
 
     private void SetNextId() throws SQLException, ClassNotFoundException {
-        String nextId = SurfBoardModel.getNextId();
+        String nextId = BeachLocationModel.getNextId();
         lblId.setText(nextId);
 
     }
@@ -135,24 +135,16 @@ public class BeachLocationController {
         }
     }
 
-    public void clickOnAction(MouseEvent mouseEvent) {
+
+    public void tblClickOnAction(MouseEvent mouseEvent) {
         BeachLocation selectedItem = tblBeach_Location.getSelectionModel().getSelectedItem();
 
 
         if (selectedItem != null) {
             lblId.setText(selectedItem.getBeachId());
             txtLocationName.setText(selectedItem.getName());
-           cbSeason.setValue(selectedItem.getPeakSeason());
-           cbMonth.setValue(selectedItem.getMonth());
-
-           /* // save button disable
-            btnSave.setDisable(true);
-
-            // update, delete button enable
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);*/
+            cbSeason.setValue(selectedItem.getPeakSeason());
+            cbMonth.setValue(selectedItem.getMonth());
         }
-
     }
 }
-

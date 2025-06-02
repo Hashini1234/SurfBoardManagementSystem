@@ -16,7 +16,7 @@ import java.io.IOException;
             public PasswordField txtPassword;
             public Button btnLogin;
             public Label lblError;
-            private User user = new User("hashi", "2003");
+            private User user = new User("h", "1");
 
             private void showAlert (String message, Alert.AlertType type){
                 Alert alert = new Alert(type);

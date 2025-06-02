@@ -36,9 +36,9 @@ public class ItemController {
     }
 
     private void loadtable() throws SQLException, ClassNotFoundException {
-        ArrayList<Item> items= Imodel.getall();
-        ObservableList<Item> observableList= FXCollections.observableArrayList();
-        for (Item item:items) {
+        ArrayList<Item> items = Imodel.getall();
+        ObservableList<Item> observableList = FXCollections.observableArrayList();
+        for (Item item : items) {
             observableList.add(item);
         }
         tblItems.setItems(observableList);
@@ -67,14 +67,14 @@ public class ItemController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String id=lblid.getText();
-        boolean isDelete=Imodel.DeleteItem(id);
-        if(isDelete){
+        String id = lblid.getText();
+        boolean isDelete = Imodel.DeleteItem(id);
+        if (isDelete) {
             loadtable();
             SetNextId();
-            new Alert(Alert.AlertType.INFORMATION,"Item Delete", ButtonType.OK).show();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Item not Delete",ButtonType.OK).show();
+            new Alert(Alert.AlertType.INFORMATION, "Item Delete", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Item not Delete", ButtonType.OK).show();
         }
 
 
@@ -88,51 +88,53 @@ public class ItemController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String id=lblid.getText();
-        String name=txtName.getText();
-        String type=txtType.getText();
-        String condition=txtCondition.getText();
-        String availability=txtAvailability.getText();
+        String id = lblid.getText();
+        String name = txtName.getText();
+        String type = txtType.getText();
+        String condition = txtCondition.getText();
+        String availability = txtAvailability.getText();
 
         //System.out.println(id+name+contactDetails+payForHour);
 
-        Item item=new Item(
-                id,name,type,condition,availability
+        Item item = new Item(
+                id, name, type, condition, availability
         );
-        boolean isSave=Imodel.SaveItem(item);
-        if(isSave){
+        boolean isSave = Imodel.SaveItem(item);
+        if (isSave) {
             loadtable();
             SetNextId();
-            new Alert(Alert.AlertType.INFORMATION,"Item Saved",ButtonType.OK).show();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Item not Save",ButtonType.OK).show();
+            new Alert(Alert.AlertType.INFORMATION, "Item Saved", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Item not Save", ButtonType.OK).show();
         }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String id=lblid.getText();
-        String name=txtName.getText();
-        String type=txtType.getText();
-        String condition=txtCondition.getText();
-        String availability=txtAvailability.getText();
+        String id = lblid.getText();
+        String name = txtName.getText();
+        String type = txtType.getText();
+        String condition = txtCondition.getText();
+        String availability = txtAvailability.getText();
 
 
-
-        Item item=new Item(
-                id,name,type,condition,availability
+        Item item = new Item(
+                id, name, type, condition, availability
         );
-        boolean isUpdate=Imodel.UpdateItem(item);
-        if(isUpdate){
+        boolean isUpdate = Imodel.UpdateItem(item);
+        if (isUpdate) {
             loadtable();
             SetNextId();
-            new Alert(Alert.AlertType.INFORMATION,"Item Update",ButtonType.OK).show();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Item not Update",ButtonType.OK).show();
+            new Alert(Alert.AlertType.INFORMATION, "Item Update", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Item not Update", ButtonType.OK).show();
         }
     }
 
-    public void clickOnAction(MouseEvent mouseEvent) {
+    public void btnGenerateOnAction(ActionEvent actionEvent) {
+    }
+
+    public void tblClickOnAction(MouseEvent mouseEvent) {
         Item selectedItem = (Item) tblItems.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
@@ -143,19 +145,7 @@ public class ItemController {
             txtAvailability.setText(selectedItem.getAvailabilityStatus());
 
 
-
-
-
-           /* // save button disable
-            btnSave.setDisable(true);
-
-            // update, delete button enable
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);*/
         }
-    }
-
-    public void btnGenerateOnAction(ActionEvent actionEvent) {
     }
 }
 

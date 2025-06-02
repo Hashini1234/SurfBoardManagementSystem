@@ -90,7 +90,7 @@
                 </Button>
             </HBox>
 
-            <!-- Supplier Table Section -->
+
             <TableView fx:id="tblSuppliers" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colSupplierId" prefWidth="150" text="Supplier ID" />

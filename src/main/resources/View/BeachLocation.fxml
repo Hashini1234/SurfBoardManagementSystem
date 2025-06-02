@@ -77,7 +77,7 @@
                                     </HBox.margin></Button>
                             </children>
                         </HBox>
-                        <TableView fx:id="tblBeach_Location" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #636e72;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblBeach_Location" onMouseClicked="#tblClickOnAction" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #636e72;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="clmbeach_location" prefWidth="163.0" text="Beach_Location id" />
                                 <TableColumn fx:id="clmlocation_name" prefWidth="174.0" text="Location_Name" />

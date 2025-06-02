@@ -122,7 +122,7 @@
             </HBox>
 
 
-            <TableView fx:id="tblPayments" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
+            <TableView fx:id="tblPayments" onMouseClicked="#tblClickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colPaymentId" prefWidth="100" text="Payment ID" />
                     <TableColumn fx:id="colAmount" prefWidth="100" text="Amount" />
