@@ -13,31 +13,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #3A3773;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.SupplierController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #e0e0e0);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.SupplierController">
     <children>
         <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 
             <!-- Supplier Input Section -->
-            <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <VBox spacing="10.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #e0e0e0); -fx-padding: 20;">
                 <HBox spacing="10.0">
-                    <Label prefHeight="16.0" prefWidth="132.0" text="Supplier ID:" textFill="white" />
-               <Label fx:id="lblid" prefHeight="16.0" prefWidth="487.0" text="1" textFill="#f5f3f3">
-                  <font>
-                     <Font name="System Bold" size="13.0" />
-                  </font>
-               </Label>
+                    <Label prefHeight="16.0" prefWidth="132.0" text="Supplier ID:" textFill="black">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Label>
+                    <Label fx:id="lblid" prefHeight="16.0" prefWidth="487.0" text="1" textFill="black">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Label>
                 </HBox>
                 <HBox spacing="10.0">
-                    <Label text="Name:" textFill="white" />
-                    <TextField fx:id="txtSupplierName" promptText="Enter Supplier Name" HBox.hgrow="SOMETIMES">
+                    <Label prefHeight="19.0" prefWidth="71.0" text="Name:" textFill="black">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Label>
+                    <TextField fx:id="txtSupplierName" promptText="Enter Supplier Name" style="-fx-font-size: 14;" HBox.hgrow="SOMETIMES">
                         <HBox.margin>
                             <Insets left="80.0" right="10.0" />
                         </HBox.margin>
                     </TextField>
                 </HBox>
                 <HBox spacing="10.0">
-                    <Label text="Contact Info:" textFill="white" />
-                    <TextField fx:id="txtContactInfo" promptText="Enter Contact Info" HBox.hgrow="SOMETIMES">
+                    <Label text="Contact Info:" textFill="black">
+                        <font><Font name="System Bold" size="15.0" /></font>
+                    </Label>
+                    <TextField fx:id="txtContactInfo" promptText="Enter Contact Info" style="-fx-font-size: 14;" HBox.hgrow="SOMETIMES">
                         <HBox.margin>
                             <Insets left="40.0" right="10.0" />
                         </HBox.margin>
@@ -47,15 +51,13 @@
 
             <!-- Button Section -->
             <HBox alignment="CENTER" spacing="10.0">
-            <Button mnemonicParsing="false" onAction="#btnGenerateOnAction" style="-fx-background-color: #2980b9;" text="Generate Report" textFill="#fcf5f5">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8-statistics-report-50.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+                <Button mnemonicParsing="false" onAction="#btnGenerateOnAction" style="-fx-background-color: #2980b9;" text="Generate Report" textFill="#fcf5f5">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image><Image url="@../icons/icons8-statistics-report-50.png" /></image>
+                        </ImageView>
+                    </graphic>
+                </Button>
                 <Button onAction="#btnSaveOnAction" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Save">
                     <font><Font name="System Bold Italic" size="13.0" /></font>
                     <graphic>
@@ -90,7 +92,7 @@
                 </Button>
             </HBox>
 
-
+            <!-- Table Section -->
             <TableView fx:id="tblSuppliers" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colSupplierId" prefWidth="150" text="Supplier ID" />

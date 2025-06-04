@@ -1,78 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #3A3773;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.ItemController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #d3cce3, #e9e4f0); -fx-padding: 20;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.surfboardmanagementsystem.controller.ItemController">
     <children>
-        <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <VBox alignment="TOP_CENTER" spacing="15.0"
+              AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 
-            <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
                 <HBox spacing="10.0">
-                    <Label prefHeight="16.0" prefWidth="153.0" text="Item ID:" textFill="white" />
-               <Label fx:id="lblid" prefHeight="16.0" prefWidth="440.0" text="1" textFill="#f5efef" />
+                    <Label text="Item ID:" textFill="#333333" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                    <Label fx:id="lblid" text="1" textFill="#555555" style="-fx-font-size: 16px;" />
                 </HBox>
+
                 <HBox spacing="10.0">
-                    <Label text="Name:" textFill="white" />
-                    <TextField fx:id="txtName" prefHeight="24.0" prefWidth="447.0" promptText="Enter Item Name" HBox.hgrow="SOMETIMES">
-                        <HBox.margin>
-                            <Insets left="95.0" right="10.0" />
-                        </HBox.margin>
-                    </TextField>
+                    <Label text="Name:" textFill="#333333" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtName" promptText="Enter Item Name"
+                               style="-fx-font-size: 14px; -fx-text-fill: #333; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #f9f9f9; -fx-padding: 6 10; -fx-focus-color: #2980b9; -fx-faint-focus-color: transparent; -fx-highlight-fill: #e0f7fa; -fx-highlight-text-fill: black;" />
                 </HBox>
+
                 <HBox spacing="10.0">
-                    <Label text="Type:" textFill="white" />
-                    <TextField fx:id="txtType" promptText="Enter Type (e.g. Surfboard, Wetsuit)" HBox.hgrow="SOMETIMES">
-                        <HBox.margin>
-                            <Insets left="100.0" right="10.0" />
-                        </HBox.margin>
-                    </TextField>
+                    <Label text="Type:" textFill="#333333" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtType" promptText="Enter Type (e.g. Surfboard, Wetsuit)"
+                               style="-fx-font-size: 14px; -fx-text-fill: #333; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #f9f9f9; -fx-padding: 6 10; -fx-focus-color: #2980b9; -fx-faint-focus-color: transparent; -fx-highlight-fill: #e0f7fa; -fx-highlight-text-fill: black;" />
                 </HBox>
+
                 <HBox spacing="10.0">
-                    <Label text="Condition:" textFill="white" />
-                    <TextField fx:id="txtCondition" promptText="Enter Condition (e.g. New, Good, Worn)" HBox.hgrow="SOMETIMES">
-                        <HBox.margin>
-                            <Insets left="70.0" right="10.0" />
-                        </HBox.margin>
-                    </TextField>
+                    <Label text="Condition:" textFill="#333333" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtCondition" promptText="Enter Condition (e.g. New, Good, Worn)"
+                               style="-fx-font-size: 14px; -fx-text-fill: #333; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #f9f9f9; -fx-padding: 6 10; -fx-focus-color: #2980b9; -fx-faint-focus-color: transparent; -fx-highlight-fill: #e0f7fa; -fx-highlight-text-fill: black;" />
                 </HBox>
+
                 <HBox spacing="10.0">
-                    <Label text="Availability:" textFill="white" />
-                    <TextField fx:id="txtAvailability" promptText="Available / Unavailable" HBox.hgrow="SOMETIMES">
-                        <HBox.margin>
-                            <Insets left="60.0" right="10.0" />
-                        </HBox.margin>
-                    </TextField>
+                    <Label text="Availability:" textFill="#333333" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtAvailability" promptText="Available / Unavailable"
+                               style="-fx-font-size: 14px; -fx-text-fill: #333; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #f9f9f9; -fx-padding: 6 10; -fx-focus-color: #2980b9; -fx-faint-focus-color: transparent; -fx-highlight-fill: #e0f7fa; -fx-highlight-text-fill: black;" />
                 </HBox>
             </VBox>
 
             <HBox alignment="CENTER" spacing="10.0">
-            <Button mnemonicParsing="false" onAction="#btnGenerateOnAction" style="-fx-background-color: #2980b9;" text="Generate Reportn" textFill="#fff8f8">
-               <font>
-                  <Font name="DejaVu Sans Bold" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8-statistics-report-50.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-                <Button onAction="#btnSaveOnAction" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Save">
-                    <font>
-                        <Font name="System Bold Italic" size="13.0" />
-                    </font>
+                <Button text="Generate Report" onAction="#btnGenerateOnAction"
+                        style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16;">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/icons8-statistics-report-50.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button text="Save" onAction="#btnSaveOnAction"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16;">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
@@ -81,10 +67,9 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button onAction="#btnUpdateOnAction" style="-fx-background-color: #cdc225; -fx-text-fill: white;" text="Update">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font>
+
+                <Button text="Update" onAction="#btnUpdateOnAction"
+                        style="-fx-background-color: #f1c40f; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16;">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
@@ -93,10 +78,9 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button onAction="#btnDeleteOnAction" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Delete">
-                    <font>
-                        <Font name="System Bold Italic" size="13.0" />
-                    </font>
+
+                <Button text="Delete" onAction="#btnDeleteOnAction"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16;">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
@@ -105,10 +89,9 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button onAction="#btnResetOnAction" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" text="Reset">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font>
+
+                <Button text="Reset" onAction="#btnResetOnAction"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16;">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
@@ -119,13 +102,14 @@
                 </Button>
             </HBox>
 
-            <TableView fx:id="tblItems" onMouseClicked="#tblClickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
+            <TableView fx:id="tblItems" onMouseClicked="#tblClickOnAction" prefHeight="250.0"
+                       style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);">
                 <columns>
                     <TableColumn fx:id="colItemId" prefWidth="100" text="Item ID" />
                     <TableColumn fx:id="colName" prefWidth="150" text="Name" />
                     <TableColumn fx:id="colType" prefWidth="100" text="Type" />
-                    <TableColumn fx:id="colCondition" prefWidth="100" text="Condition" />
-                    <TableColumn fx:id="colAvailability" prefWidth="150" text="Availability" />
+                    <TableColumn fx:id="colCondition" prefWidth="124.0" text="Condition" />
+                    <TableColumn fx:id="colAvailability" prefWidth="185.0" text="Availability" />
                 </columns>
             </TableView>
 

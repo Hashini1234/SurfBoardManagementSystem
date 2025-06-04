@@ -1,49 +1,82 @@
 package lk.ijse.surfboardmanagementsystem.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import lk.ijse.surfboardmanagementsystem.User;
+import lk.ijse.surfboardmanagementsystem.Applnitializer;
+import lk.ijse.surfboardmanagementsystem.dto.User;
+import lk.ijse.surfboardmanagementsystem.model.LoggingPageModel;
 
 import java.io.IOException;
 
+public class LoggingPageController {
 
-        public class LoggingPageController {
-            public TextField txtUsername;
-            public PasswordField txtPassword;
-            public Button btnLogin;
-            public Label lblError;
-            private User user = new User("h", "1");
+    @FXML
+    private Button btnLogin;
 
-            private void showAlert (String message, Alert.AlertType type){
-                Alert alert = new Alert(type);
-                alert.setContentText(message);
-                alert.show();
-            }
+    @FXML
+    private Label lblError;
 
-            public void loginOnAction(ActionEvent actionEvent) {
-                String username = txtUsername.getText();
-                String password = txtPassword.getText();
+    @FXML
+    private PasswordField txtPassword;
 
-                if (User.verifyLogin(username, password)) {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/DashBoard.fxml"));
-                        Parent dashboardRoot = loader.load();
-                        Stage stage = (Stage) txtUsername.getScene().getWindow();
-                        Scene scene = new Scene(dashboardRoot);
-                        stage.setScene(scene);
-                        stage.setTitle("Dashboard");
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    showAlert("Invalid username or password.", Alert.AlertType.ERROR);
-                }
-            }
+    @FXML
+    private TextField txtUsername;
+
+    private LoggingPageModel loggingPageModel = new LoggingPageModel();
+
+
+    @FXML
+    void loginOnAction(ActionEvent event) throws IOException {
+        String userName = txtUsername.getText();
+        String password = txtPassword.getText();
+
+        boolean userExists = loggingPageModel.checkUser(userName);
+
+        if(!userExists){
+
+            return;
+        }
+
+        User user = loggingPageModel.getUser(userName);
+
+        if(!password.equals(user.getPassword())){
+            return;
         }
 
 
+        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/DashBoard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage newStage = new Stage();
+        newStage.setTitle("Sign Up");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnLogin.getScene().getWindow();
+        currentStage.close();
+
+    }
+
+    @FXML
+    void signUpOnAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/signup.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage newStage = new Stage();
+        newStage.setTitle("Sign Up");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnLogin.getScene().getWindow();
+        currentStage.close();
+    }
+
+
+}

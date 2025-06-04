@@ -28,11 +28,11 @@ public class BeachLocationModel {
     }
 
     public static boolean DeleteBeachLocation(String id) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from Beach_Location where beach_id= ? ",id);
+        return CrudUtil.execute("delete from Beach_Location where beach_id= ? ", id);
     }
 
     public static boolean SaveBeachLocation(BeachLocation beachLocation) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into Beach_Location values(?,?,?,?)", beachLocation.getBeachId(),beachLocation.getName(),beachLocation.getPeakSeason(),beachLocation.getMonth());
+        return CrudUtil.execute("insert into Beach_Location values(?,?,?,?)", beachLocation.getBeachId(), beachLocation.getName(), beachLocation.getPeakSeason(), beachLocation.getMonth());
 
     }
 
@@ -49,7 +49,7 @@ public class BeachLocationModel {
 
     public static ObservableList<String> getAllMonth() {
         return FXCollections.observableArrayList(
-                "January","February"
+                "January", "February"
         );
     }
 
@@ -57,7 +57,7 @@ public class BeachLocationModel {
         ResultSet rs = CrudUtil.execute("select beach_id from Beach_Location");
         ObservableList list = FXCollections.observableArrayList();
 
-        while (rs.next()){
+        while (rs.next()) {
             list.add(rs.getString("beach_id"));
 
         }
@@ -66,22 +66,22 @@ public class BeachLocationModel {
 
     public static ObservableList<String> getAllSeson() {
         return FXCollections.observableArrayList(
-                "January","February"
+                "January", "February"
         );
     }
 
     public static String getNextId() throws SQLException, ClassNotFoundException {
-            ResultSet rs = CrudUtil.execute("SELECT beach_id FROM Beach_Location ORDER BY beach_id DESC LIMIT 1");
-            char tableCharactor = 'B';
-            if (rs.next()) {
-                String lastId = rs.getString(1);
-                String lastIdNumberString = lastId.substring(1);
-                int lastIdNumber = Integer.parseInt(lastIdNumberString);
-                int nextIdNumber = lastIdNumber + 1;
-                return String.format("%c%03d", tableCharactor, nextIdNumber);
-            }
-            return tableCharactor + "001";
+        ResultSet rs = CrudUtil.execute("SELECT beach_id FROM Beach_Location ORDER BY beach_id DESC LIMIT 1");
+        char tableCharactor = 'B';
+        if (rs.next()) {
+            String lastId = rs.getString(1);
+            String lastIdNumberString = lastId.substring(1);
+            int lastIdNumber = Integer.parseInt(lastIdNumberString);
+            int nextIdNumber = lastIdNumber + 1;
+            return String.format(tableCharactor + "%03d", nextIdNumber);
         }
+        return tableCharactor + "001";
     }
+}
 
 
