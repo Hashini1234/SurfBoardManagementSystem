@@ -163,7 +163,7 @@
                 </Button>
             </HBox>
 
-            <!-- Table Section -->
+
             <TableView fx:id="tblPayments" onMouseClicked="#tblClickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1;">
                 <columns>
                     <TableColumn fx:id="colPaymentId" prefWidth="100" text="Payment ID" />

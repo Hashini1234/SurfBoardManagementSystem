@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="436.0" prefWidth="624.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.GuidController">
+<AnchorPane prefHeight="836.0" prefWidth="1281.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.GuidController">
     <children>
-        <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="415.0" prefWidth="611.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="14.0">
+        <AnchorPane layoutX="7.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox layoutY="14.0" prefHeight="400.0" prefWidth="600.0">
+                <VBox layoutY="14.0" prefHeight="824.0" prefWidth="1449.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <!-- Input Fields -->
                         <VBox prefHeight="153.0" prefWidth="600.0">
@@ -29,7 +29,7 @@
                                         <Label prefHeight="25.0" prefWidth="189.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Name" textFill="black">
                                             <HBox.margin><Insets left="10.0" /></HBox.margin>
                                         </Label>
-                                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="474.0" promptText="Guide" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;">
+                                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="474.0" promptText="Guide" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
                                             <HBox.margin><Insets left="10.0" right="10.0" /></HBox.margin>
                                         </TextField>
                                     </children>
@@ -41,7 +41,7 @@
                                         <Label prefHeight="25.0" prefWidth="187.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Contact Details" textFill="black">
                                             <HBox.margin><Insets left="10.0" /></HBox.margin>
                                         </Label>
-                                        <TextField fx:id="txtContactDetails" prefHeight="25.0" prefWidth="473.0" promptText="0000000000" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;">
+                                        <TextField fx:id="txtContactDetails" prefHeight="25.0" prefWidth="473.0" promptText="0000000000" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
                                             <HBox.margin><Insets left="10.0" right="10.0" /></HBox.margin>
                                         </TextField>
                                     </children>
@@ -53,7 +53,7 @@
                                         <Label prefHeight="24.0" prefWidth="190.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Experience Year" textFill="black">
                                             <HBox.margin><Insets left="10.0" /></HBox.margin>
                                         </Label>
-                                        <TextField fx:id="txtExperience_Year" prefHeight="25.0" prefWidth="476.0" promptText="10" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;">
+                                        <TextField fx:id="txtExperience_Year" prefHeight="25.0" prefWidth="476.0" promptText="10" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
                                             <HBox.margin><Insets left="10.0" right="10.0" /></HBox.margin>
                                         </TextField>
                                     </children>
@@ -65,7 +65,7 @@
                                         <Label prefHeight="25.0" prefWidth="187.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Pay For Hour" textFill="black">
                                             <HBox.margin><Insets left="10.0" /></HBox.margin>
                                         </Label>
-                                        <TextField fx:id="txtPayForHour" prefHeight="25.0" prefWidth="474.0" promptText="10000" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;">
+                                        <TextField fx:id="txtPayForHour" prefHeight="25.0" prefWidth="474.0" promptText="10000" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
                                             <HBox.margin><Insets left="10.0" right="10.0" /></HBox.margin>
                                         </TextField>
                                     </children>
@@ -74,7 +74,7 @@
                         </VBox>
 
                         <!-- Buttons -->
-                        <HBox prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);">
+                        <HBox prefHeight="46.0" prefWidth="833.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);">
                             <children>
                                 <Button mnemonicParsing="false" onAction="#btnGenarateROnAction" style="-fx-background-color: #2c3e50;" text="Genarate Report" textFill="#f5f4f4">
                                     <graphic>
@@ -124,7 +124,7 @@
                         </HBox>
 
                         <!-- Table -->
-                        <TableView fx:id="tblGuide" onMouseClicked="#clickOnAction" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #636e72; -fx-font-size: 14px;">
+                        <TableView fx:id="tblGuide" onMouseClicked="#clickOnAction" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #636e72; -fx-font-size: 14px;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="clmGuideid" prefWidth="75.0" text="Guide id" />
                                 <TableColumn fx:id="clmName" prefWidth="75.0" text="Name" />

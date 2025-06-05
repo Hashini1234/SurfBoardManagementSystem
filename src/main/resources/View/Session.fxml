@@ -8,8 +8,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -83,42 +81,15 @@
 
             <!-- Buttons -->
             <HBox alignment="CENTER" spacing="10.0">
-                <Button mnemonicParsing="false" onAction="#btnGenerateOnAction" style="-fx-background-color: #2980b9;" text="Generate Report" textFill="#fff8f8">
-                    <font><Font name="DejaVu Sans Bold" size="13.0" /></font>
-                    <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                            <image><Image url="@../icons/icons8-statistics-report-50.png" /></image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button onAction="#btnSaveOnAction" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Save">
-                    <font><Font name="System Bold Italic" size="13.0" /></font>
-                    <graphic><ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
-                        <image><Image url="@../icons/icons8-save-30.png" /></image>
-                    </ImageView></graphic>
-                </Button>
-                <Button onAction="#btnUpdateOnAction" style="-fx-background-color: #cdc225; -fx-text-fill: white;" text="Update">
-                    <font><Font name="System Bold" size="13.0" /></font>
-                    <graphic><ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
-                        <image><Image url="@../icons/icons8-update-24.png" /></image>
-                    </ImageView></graphic>
-                </Button>
-                <Button onAction="#btnDeleteOnAction" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Delete">
-                    <font><Font name="System Bold Italic" size="13.0" /></font>
-                    <graphic><ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
-                        <image><Image url="@../icons/icons8-delete-30.png" /></image>
-                    </ImageView></graphic>
-                </Button>
-                <Button onAction="#btnResetOnAction" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" text="Reset">
-                    <font><Font name="System Bold" size="13.0" /></font>
-                    <graphic><ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
-                        <image><Image url="@../icons/icons8-update-50.png" /></image>
-                    </ImageView></graphic>
-                </Button>
+            <Button layoutX="287.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlaceSession" prefHeight="24.0" prefWidth="206.0" style="-fx-background-color: #2980b9;" text="Place Session" textFill="#fff8f8">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="13.0" />
+               </font>
+            </Button>
             </HBox>
 
             <!-- Table -->
-            <TableView fx:id="tblSessions" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-background-color: #ecf0f1; -fx-font-size: 14px;">
+            <TableView fx:id="tblSessions" onMouseClicked="#clickOnAction" prefHeight="259.0" prefWidth="760.0" style="-fx-background-color: #ecf0f1; -fx-font-size: 14px;">
                 <columns>
                     <TableColumn fx:id="colSessionId" prefWidth="80" text="Session ID" />
                     <TableColumn fx:id="colDate" prefWidth="100" text="Date" />
@@ -133,7 +104,34 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
             </TableView>
+            <VBox spacing="8.0">
+                <Label text="Payment Info" textFill="#064886">
+                    <font><Font size="18.0" /></font>
+                </Label>
 
+                <HBox spacing="10.0">
+                    <Label prefWidth="115.0" text="Payment ID" textFill="#34495e" />
+                    <Label fx:id="lblPaymentId" text="Auto-gen" textFill="#2c3e50" />
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <Label prefWidth="109.0" text="Method:" textFill="#34495e" />
+                    <ComboBox fx:id="cmbMethod" prefWidth="150.0" style="-fx-background-radius: 8; -fx-border-radius: 8;" />
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <Label prefWidth="115.0" text="Total:" textFill="#34495e" />
+                    <Label fx:id="lblTotalAmount" text="0.00" textFill="#2c3e50" />
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <Label prefWidth="113.0" text="Paid Amount:" textFill="#34495e" />
+                    <TextField fx:id="txtPaidAmount" prefHeight="25.0" prefWidth="149.0" />
+                    <Button fx:id="btnCheckBalance" onAction="#btnCheckBalanceOnAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #4b7bec; -fx-text-fill: white; -fx-background-radius: 8;" text="Check" />
+                    <Label prefWidth="83.0" text="Change:" textFill="#34495e" />
+                    <Label fx:id="lblChange" text="0.00" textFill="#2c3e50" />
+                </HBox>
+            </VBox>
         </VBox>
     </children>
 </AnchorPane>
