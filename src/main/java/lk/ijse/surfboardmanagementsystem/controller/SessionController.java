@@ -11,10 +11,16 @@ import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.dto.Session;
 import lk.ijse.surfboardmanagementsystem.model.*;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class SessionController {
 
@@ -149,6 +155,7 @@ public class SessionController {
 
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Session Placed Successfully!").show();
+                sendEmail(TouristModel.getEmail(touristId),time,date);
                 loadTable();
                 setNextIds();
                 resetFields();
@@ -161,6 +168,7 @@ public class SessionController {
             new Alert(Alert.AlertType.ERROR, "Something went wrong: " + e.getMessage()).show();
         }
     }
+
 
     @FXML
     void btnCheckBalanceOnAction(ActionEvent event) {
@@ -200,6 +208,59 @@ public class SessionController {
             cmbGuideId.setValue(selected.getGuideId());
             cmbStatus.setValue(selected.getStatus());
         }
+    }
+
+    private void sendEmail(Object email, Time time, Date date)  {
+
+        new Thread(() -> {
+
+            String senderEmail = "punchihewadevindi@gmail.com";
+            String senderPassword = "ttdeuwznuhfslwdg";
+            String subject = "Your Order Alert";
+            String body = "Dear Customer,\n" +
+                    "This is to inform you that your order has been placed successfully. We will contact you shortly to confirm the details.\n" +
+                    "\n price: " + time + "\n" +
+                    "\n supplement Name: " + date + "\n" +
+                    "Thank you for choosing us.\n" +
+                    "Best regards,\n" +
+                    "Gym Management System";
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            javax.mail.Session session = javax.mail.Session.getInstance(properties, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(senderEmail, senderPassword);
+                }
+            });
+
+            try {
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(senderEmail));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse((String) email));
+                message.setSubject(subject);
+
+                Multipart multipart = new MimeMultipart();
+
+                MimeBodyPart messageBodyPart = new MimeBodyPart();
+                messageBodyPart.setText(body);
+                multipart.addBodyPart(messageBodyPart);
+
+                MimeBodyPart attachmentPart = new MimeBodyPart();
+
+                message.setContent(multipart);
+
+                Transport.send(message);
+
+                System.out.println("Email sent successfully with the QR code attachment.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+
+
     }
 
 }

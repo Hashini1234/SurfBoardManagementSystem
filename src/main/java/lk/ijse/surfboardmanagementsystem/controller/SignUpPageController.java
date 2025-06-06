@@ -61,7 +61,7 @@ public class SignUpPageController implements Initializable {
     @FXML
     void goToLogin(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/Logging.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/login.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 
             Stage newStage = new Stage();

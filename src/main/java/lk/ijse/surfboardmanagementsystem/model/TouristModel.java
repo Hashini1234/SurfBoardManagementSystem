@@ -17,7 +17,8 @@ public class TouristModel {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4)
+                    rs.getString(4),
+                    rs.getString(5)
             );
             tourists.add(tourist);
         }
@@ -44,12 +45,12 @@ public class TouristModel {
     }
 
     public static boolean SaveTourist(Tourist tourist) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into Tourist values(?,?,?,?)", tourist.getTouristId(),tourist.getName(),tourist.getAddress(),tourist.getContactDetails());
+        return CrudUtil.execute("insert into Tourist values(?,?,?,?,?)", tourist.getTouristId(),tourist.getName(),tourist.getAddress(),tourist.getContactDetails(),tourist.getEmail());
 
     }
 
     public static boolean UpdateTourist(Tourist tourist) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update Tourist set name = ?,address = ? ,contact_details=? where tourist_id = ?" , tourist.getName(),tourist.getAddress(),tourist.getContactDetails(),tourist.getTouristId());
+        return CrudUtil.execute("update Tourist set name = ?,address = ? ,contact_details=?,email = ? where tourist_id = ?" , tourist.getName(),tourist.getAddress(),tourist.getContactDetails(),tourist.getTouristId());
 
     }
 
@@ -63,5 +64,17 @@ public class TouristModel {
             }
             return list;
         }
+
+    public static Object getEmail(String touristId) {
+        try {
+            ResultSet resultSet = CrudUtil.execute("select email from Session where tourist_id = ?", touristId);
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+}
 

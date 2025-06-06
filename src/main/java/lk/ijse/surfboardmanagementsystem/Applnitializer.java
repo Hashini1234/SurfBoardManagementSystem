@@ -11,7 +11,7 @@ public class Applnitializer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/Logging.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello");
         stage.setScene(scene);

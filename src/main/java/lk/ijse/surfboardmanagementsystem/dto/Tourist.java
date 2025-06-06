@@ -12,5 +12,6 @@ public class Tourist {
     private String name;
     private String address;
     private String contactDetails;
+    private String email;
 
 }

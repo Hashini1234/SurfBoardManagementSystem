@@ -3,10 +3,14 @@ package lk.ijse.surfboardmanagementsystem.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lk.ijse.surfboardmanagementsystem.Applnitializer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -75,7 +79,13 @@ public  class DashBoardController implements Initializable {
             }
         }
 
-    public void btnLogOutOnAction(ActionEvent actionEvent) {
+    public void btnLogOutOnAction(ActionEvent actionEvent) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(Applnitializer.class.getResource("/View/login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) lblDash.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
     }
-}
+
 

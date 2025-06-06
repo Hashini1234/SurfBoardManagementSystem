@@ -1,66 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0"
-            style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dcd6f7, #f3f3f3);"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.surfboardmanagementsystem.controller.TouristController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #dcd6f7, #f3f3f3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.TouristController">
 
     <children>
         <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 
             <!-- Input Section -->
-            <VBox spacing="10.0" style="-fx-background-color: #e6e6fa; -fx-padding: 20;">
+            <VBox prefHeight="171.0" prefWidth="660.0" spacing="10.0" style="-fx-background-color: #e6e6fa; -fx-padding: 20;">
                 <HBox spacing="10.0">
                     <Label prefHeight="16.0" prefWidth="253.0" text="Tourist ID:" textFill="black">
                         <font>
-                            <Font name="System Bold" size="15.0"/>
+                            <Font name="System Bold" size="15.0" />
                         </font>
                     </Label>
                     <Label fx:id="lblTouristid" prefHeight="16.0" prefWidth="549.0" text="1" textFill="black">
                         <font>
-                            <Font name="System Bold" size="15.0"/>
+                            <Font name="System Bold" size="15.0" />
                         </font>
                     </Label>
                 </HBox>
                 <HBox spacing="10.0">
                     <Label prefHeight="16.0" prefWidth="215.0" text="Name:" textFill="black">
                         <font>
-                            <Font name="System Bold" size="15.0"/>
+                            <Font name="System Bold" size="15.0" />
                         </font>
                     </Label>
-                    <TextField fx:id="txtName" prefHeight="24.0" prefWidth="527.0" promptText="Enter Name" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES"/>
+                    <TextField fx:id="txtName" prefHeight="24.0" prefWidth="527.0" promptText="Enter Name" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES" />
                 </HBox>
                 <HBox spacing="10.0">
                     <Label prefHeight="16.0" prefWidth="148.0" text="Address:" textFill="black">
                         <font>
-                            <Font name="System Bold" size="15.0"/>
+                            <Font name="System Bold" size="15.0" />
                         </font>
                     </Label>
-                    <TextField fx:id="txtAddress" promptText="Enter Address" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES"/>
+                    <TextField fx:id="txtAddress" promptText="Enter Address" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES" />
                 </HBox>
                 <HBox spacing="10.0">
                     <Label prefHeight="16.0" prefWidth="151.0" text="Contact Details:" textFill="black">
                         <font>
-                            <Font name="System Bold" size="15.0"/>
+                            <Font name="System Bold" size="15.0" />
                         </font>
                     </Label>
-                    <TextField fx:id="txtContactDetails" promptText="Enter Contact Details" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES"/>
+                    <TextField fx:id="txtContactDetails" promptText="Enter Contact Details" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES" />
                 </HBox>
+            <HBox layoutX="30.0" layoutY="135.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="151.0" text="Email" textFill="black">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" promptText="Enter Contact Details" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;" HBox.hgrow="SOMETIMES" />
+               </children>
+            </HBox>
             </VBox>
 
-            <!-- Buttons Section -->
+
             <HBox alignment="CENTER" spacing="10.0">
                 <Button onAction="#btnGenerateOnAction" style="-fx-background-color: #2980b9;" text="Generate Report">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/icons8-statistics-report-50.png"/>
+                                <Image url="@../icons/icons8-statistics-report-50.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -69,7 +82,7 @@
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/icons8-save-30.png"/>
+                                <Image url="@../icons/icons8-save-30.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -78,7 +91,7 @@
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/icons8-update-24.png"/>
+                                <Image url="@../icons/icons8-update-24.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -87,7 +100,7 @@
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/icons8-delete-30.png"/>
+                                <Image url="@../icons/icons8-delete-30.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -96,7 +109,7 @@
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/icons8-reset-30.png"/>
+                                <Image url="@../icons/icons8-reset-30.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -104,15 +117,16 @@
             </HBox>
 
             <!-- Table Section -->
-            <TableView fx:id="tblTourist" onMouseClicked="#clickOnAction" prefHeight="250.0" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;">
+            <TableView fx:id="tblTourist" onMouseClicked="#clickOnAction" prefHeight="233.0" prefWidth="660.0" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-font-weight: bold;">
                 <columns>
-                    <TableColumn fx:id="colTouristId" prefWidth="100" text="Tourist ID"/>
-                    <TableColumn fx:id="colName" prefWidth="150" text="Name"/>
-                    <TableColumn fx:id="colAddress" prefWidth="200" text="Address"/>
-                    <TableColumn fx:id="colContactDetails" prefWidth="150" text="Contact Details"/>
+                    <TableColumn fx:id="colTouristId" prefWidth="100" text="Tourist ID" />
+                    <TableColumn fx:id="colName" prefWidth="150" text="Name" />
+                    <TableColumn fx:id="colAddress" prefWidth="200" text="Address" />
+                    <TableColumn fx:id="colContactDetails" prefWidth="150" text="Contact Details" />
+               <TableColumn fx:id="colEmail" prefWidth="150" text="Email" />
                 </columns>
                 <columnResizePolicy>
-                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
             </TableView>
 

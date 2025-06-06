@@ -3,6 +3,7 @@ module lk.ijse.surfboardmanagementsystem {
     requires javafx.fxml;
     requires java.sql;
     requires static lombok;
+    requires java.mail;
 
     exports lk.ijse.surfboardmanagementsystem;
     opens lk.ijse.surfboardmanagementsystem to javafx.fxml;
