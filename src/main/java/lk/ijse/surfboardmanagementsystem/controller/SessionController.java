@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.surfboardmanagementsystem.dto.Guide;
 import lk.ijse.surfboardmanagementsystem.dto.Session;
-import lk.ijse.surfboardmanagementsystem.model.BeachLocationModel;
-import lk.ijse.surfboardmanagementsystem.model.GuideModel;
-import lk.ijse.surfboardmanagementsystem.model.SessionModel;
-import lk.ijse.surfboardmanagementsystem.model.TouristModel;
+import lk.ijse.surfboardmanagementsystem.model.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -21,6 +19,7 @@ import java.util.ArrayList;
 public class SessionController {
 
     private final SessionModel sessionModel = new SessionModel();
+    private final GuideModel guideModel = new GuideModel();
     public ComboBox<String> cmbTouristId;
     public ComboBox<String> cmbBeachId;
     public ComboBox<String> cmbGuideId;
@@ -31,7 +30,7 @@ public class SessionController {
     public Button btnCheckBalance;
     public Label lblChange;
     public Label lblPaymentId;
-    public TextField txtSurfboardId;
+    public ComboBox<String> cmbSurfBoardId;
 
     @FXML
     private Label lblSessionId;
@@ -58,9 +57,52 @@ public class SessionController {
         cmbBeachId.setItems(BeachLocationModel.getallBeachId());
         cmbTouristId.setItems(TouristModel.getAllTourist());
         cmbGuideId.setItems(GuideModel.getallGuide());
+
+        cmbGuideId.setOnAction(event -> {
+            String selectedGuideId = cmbGuideId.getSelectionModel().getSelectedItem();
+            if (selectedGuideId != null) {
+                handleGuideSelection(selectedGuideId);
+            }
+        });
+
+
         cmbMethod.setItems(FXCollections.observableArrayList("card", "cash"));
+        cmbSurfBoardId.setItems(SurfBoardModel.getallSurfBoardId());
         loadTable();
     }
+
+    private void handleGuideSelection(String selectedGuideId) {
+       updateTotalAmount();
+    }
+
+    private void updateTotalAmount() {
+        String selectedGuideId = cmbGuideId.getSelectionModel().getSelectedItem();
+        String durationText = txtDuration.getText();
+
+        if (selectedGuideId == null || durationText.isEmpty()) {
+            lblTotalAmount.setText("0.00");
+            return;
+        }
+
+        try {
+            Guide guide = guideModel.getGuideById(selectedGuideId);
+            if (guide != null) {
+                double duration = Double.parseDouble(durationText);
+                double amount = guide.getPayFor() * duration;
+                lblTotalAmount.setText(String.format("%.2f", amount));
+            }
+        } catch (NumberFormatException e) {
+            // Optional: handle invalid number format
+            lblTotalAmount.setText("0.00");
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error calculating amount");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
 
     private void loadTable() throws SQLException, ClassNotFoundException {
         ArrayList<Session> sessions = sessionModel.getAll(); // you need to implement getAll() in the new SessionModel if missing
@@ -89,6 +131,7 @@ public class SessionController {
         try {
             String sessionId = lblSessionId.getText();
             String paymentId = lblPaymentId.getText();
+            System.out.println("Payment ID: " + paymentId);
             Date date = Date.valueOf(dateSession.getValue());
             Time time = Time.valueOf(txtTime.getText());
             String duration = txtDuration.getText();
@@ -98,7 +141,7 @@ public class SessionController {
             String status = cmbStatus.getValue();
             String method = cmbMethod.getValue();
             String amount = String.valueOf(Double.parseDouble(lblTotalAmount.getText()));
-            String surfboardId = txtSurfboardId.getText();
+            String surfboardId = cmbSurfBoardId.getValue();
 
             Session dto = new Session(sessionId, date, time, duration, touristId, beachId, guideId, status, paymentId, method, amount, surfboardId);
 
@@ -141,7 +184,7 @@ public class SessionController {
         cmbGuideId.getSelectionModel().clearSelection();
         cmbStatus.getSelectionModel().clearSelection();
         cmbMethod.getSelectionModel().clearSelection();
-        txtSurfboardId.clear();
+        cmbSurfBoardId.getSelectionModel().clearSelection();
     }
 
     @FXML

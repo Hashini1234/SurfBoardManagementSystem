@@ -15,5 +15,6 @@ public class Guide {
     private String contactDetails;
     private String experienceLevel;
     private Double payFor;
+    private String status;
 
 }

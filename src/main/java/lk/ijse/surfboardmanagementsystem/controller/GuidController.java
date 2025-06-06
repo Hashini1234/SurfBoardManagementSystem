@@ -112,7 +112,7 @@ public class GuidController  {
         //System.out.println(id+name+contactDetails+payForHour);
 
      Guide guide=new Guide(
-             id,name,contactDetails,experience_Year,payForHour
+             id,name,contactDetails,experience_Year,payForHour, "Available"
      );
      boolean isSave=GuideModel.SaveGuide(guide);
      if(isSave){
@@ -134,7 +134,7 @@ public class GuidController  {
         //System.out.println(id+name+contactDetails+payForHour);
 
         Guide guide=new Guide(
-                id,name,contactDetails,experience_Year,payForHour
+                id,name,contactDetails,experience_Year,payForHour, "Available"
         );
         boolean isUpdate=GuideModel.UpdateGuide(guide);
         if(isUpdate){

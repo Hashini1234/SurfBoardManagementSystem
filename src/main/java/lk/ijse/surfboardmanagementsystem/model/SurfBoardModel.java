@@ -1,6 +1,8 @@
 package lk.ijse.surfboardmanagementsystem.model;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.surfboardmanagementsystem.dto.SurfBoard;
 import lk.ijse.surfboardmanagementsystem.util.CrudUtil;
 
@@ -17,7 +19,8 @@ public class SurfBoardModel {
             SurfBoard surfBoard = new SurfBoard(
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getString(3)
+                    rs.getString(3),
+                    rs.getString(4)
 
             );
             surfBoards.add(surfBoard);
@@ -27,7 +30,7 @@ public class SurfBoardModel {
 
 
     public static boolean SaveSurfBoard(SurfBoard surfBoard) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into Surf_Board values(?,?,?)", surfBoard.getSurfboardId(),surfBoard.getBrand(),surfBoard.getConditions());
+        return CrudUtil.execute("insert into Surf_Board values(?,?,?,?)", surfBoard.getSurfboardId(),surfBoard.getBrand(),surfBoard.getConditions(),surfBoard.getStatus());
     }
 
     public static boolean UpdateSurfBoard(SurfBoard surfBoard) throws SQLException, ClassNotFoundException {
@@ -50,6 +53,19 @@ public class SurfBoardModel {
         return tableCharactor + "001";
     }
 
+    public static ObservableList<String> getallSurfBoardId() {
+        try {
+            ObservableList<String> surfBoardId = FXCollections.observableArrayList();
+            ResultSet rs = CrudUtil.execute("SELECT surfboard_id FROM Surf_Board");
+            while (rs.next()) {
+                surfBoardId.add(rs.getString(1));
+            }
+            return surfBoardId;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
 
 

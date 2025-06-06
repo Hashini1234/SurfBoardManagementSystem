@@ -58,7 +58,7 @@ public class SurfBoardController {
 
 
         SurfBoard SurfBoard=new SurfBoard(
-                id,brand,conditions
+                id,brand,conditions,"Available"
         );
         boolean isSave=SurfBoardModel.SaveSurfBoard(SurfBoard);
         if(isSave){
@@ -77,7 +77,7 @@ public class SurfBoardController {
 
 
         SurfBoard SurfBoard=new SurfBoard(
-                id,brand,conditions
+                id,brand,conditions,"Available"
         );
         boolean isUpdate=SurfBoardModel.UpdateSurfBoard(SurfBoard);
         if(isUpdate){

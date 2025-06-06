@@ -13,7 +13,7 @@ public class GuideModel {
 
 
     public static boolean SaveGuide(Guide guide) throws SQLException, ClassNotFoundException {
-      return CrudUtil.execute("insert into Guide values(?,?,?,?,?)", guide.getGuideId(),guide.getName(),guide.getContactDetails(),guide.getExperienceLevel(),guide.getPayFor());
+      return CrudUtil.execute("insert into Guide (guide_id,name,contact_details,experience_level,pay_for) values(?,?,?,?,?)", guide.getGuideId(),guide.getName(),guide.getContactDetails(),guide.getExperienceLevel(),guide.getPayFor());
     }
 
     public static boolean UpdateGuide(Guide guide) throws SQLException, ClassNotFoundException {
@@ -29,7 +29,8 @@ public class GuideModel {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getDouble(5)
+                    rs.getDouble(5),
+                    rs.getString(6)
 
             );
             guides.add(guide);
@@ -68,4 +69,22 @@ public class GuideModel {
         return tableCharactor+"001";
     }
 
+    public Guide getGuideById(String selectedGuideId) {
+        try {
+            ResultSet rs = CrudUtil.execute("SELECT * FROM Guide WHERE guide_id = ?", selectedGuideId);
+            if (rs.next()) {
+                return new Guide(
+                        rs.getString("guide_id"),
+                        rs.getString("name"),
+                        rs.getString("contact_details"),
+                        rs.getString("experience_level"),
+                        rs.getDouble("pay_for"),
+                        rs.getString("status")
+                );
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

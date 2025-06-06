@@ -23,7 +23,6 @@ public class Session {
     private String amount;
     private String surfboardId;
 
-
     public Session(String sessionId, Date date, Time time, String duration, String touristId, String beachId, String guideId, String status) {
         this.sessionId = sessionId;
         this.date = date;
@@ -33,8 +32,5 @@ public class Session {
         this.beachId = beachId;
         this.guideId = guideId;
         this.status = status;
-
-
-
     }
 }
